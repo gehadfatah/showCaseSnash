@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="shadowShow">#B0000000</color>
+    <color name="greenShow">#42b549</color>
+    <color name="blueShow">#1E88E5</color>
+    <color name="light_grayShow">#DDDDDD</color>
+    <color name="show_case_background">#EB2388</color>
+
+</resources>

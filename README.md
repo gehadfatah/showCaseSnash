@@ -5,11 +5,9 @@ This library is used to showcase chain of views to guide the users about the fea
 <table>
     <tr>
         <td>
-        <img src="showcase1.gif?raw=true" alt="" width="240" />
+        <img src="showcase.gif?raw=true" alt="" width="240" />
         </td>
-        <td>
-        <img src="showcase2.gif?raw=true" alt="" width="240" />
-        </td>
+
     </tr>
 </table>
 

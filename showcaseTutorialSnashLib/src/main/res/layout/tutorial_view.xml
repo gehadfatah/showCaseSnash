@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_group_tutor_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/corner_tutorial_back"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingTop="8dp"
+        android:paddingRight="12dp"
+        android:textStyle="bold"
+        tools:textSize="@dimen/text_title" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/text_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingTop="8dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="8dp" />
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp" />
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/prev_next_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/prevButtonlin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/rectangle_rounded_white"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingTop="6dp"
+
+            android:paddingBottom="6dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_previous"
+                android:layout_width="@dimen/buttom_width_small"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_white"
+
+                android:gravity="center"
+
+
+                tools:text="@string/previousShow" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view_line2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/view_group_indicator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <View
+            android:id="@+id/view_line3"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/nextButtonlin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/rectangle_rounded_white"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingTop="6dp"
+
+            android:paddingBottom="6dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_next"
+                android:layout_width="@dimen/buttom_width_small"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_white"
+
+                android:gravity="center"
+                tools:text="@string/nextShow" />
+        </LinearLayout>
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</android.support.v7.widget.LinearLayoutCompat>

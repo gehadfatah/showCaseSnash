@@ -1,4 +1,4 @@
-package com.tokopedia.showcase;
+package com.goda.showcase;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.NestedScrollView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,12 +111,12 @@ public class ShowCaseDialog extends DialogFragment {
                 if (!TextUtils.isEmpty(tag)) {
                     ShowCasePreference.setShown(getActivity(), tag, true);
                 }
-
                 ShowCaseDialog.this.close();
             }
         });
 
         setCancelable(builder.isClickable());
+        Log.d(TAG, "initViews:showcasedia "+builder.isClickable());
     }
 
     public void next() {
@@ -226,6 +227,7 @@ public class ShowCaseDialog extends DialogFragment {
                 // no op
             }
         }
+
     }
 
     public void showLayout(Activity activity, ShowCaseObject showCaseObject) {
@@ -303,8 +305,10 @@ public class ShowCaseDialog extends DialogFragment {
             retryCounter = 0;
             layout.showTutorial(view, title, text, currentTutorIndex, tutorsList.size(),
                     showCaseContentPosition, tintBackgroundColor, customTarget, radius);
+
         } catch (Throwable t) {
             // do nothing
+
         }
 
     }
@@ -317,6 +321,7 @@ public class ShowCaseDialog extends DialogFragment {
                 return;
             }
             layout.closeTutorial();
+            //layout.onDetachedFromWindow();
         } catch (Exception e) {
             // no op
         }

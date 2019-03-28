@@ -6,10 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.tokopedia.showcase.ShowCaseBuilder;
-import com.tokopedia.showcase.ShowCaseContentPosition;
-import com.tokopedia.showcase.ShowCaseDialog;
-import com.tokopedia.showcase.ShowCaseObject;
+
+import com.goda.showcase.ShowCaseBuilder;
+import com.goda.showcase.ShowCaseContentPosition;
+import com.goda.showcase.ShowCaseDialog;
+import com.goda.showcase.ShowCaseObject;
 
 import java.util.ArrayList;
 
@@ -43,15 +44,15 @@ public class ScrollShowCaseActivity extends AppCompatActivity
     private void initShowCaseDialog() {
         showCaseDialog = new ShowCaseBuilder()
                 .textColorRes(android.R.color.white)
-                .shadowColorRes(R.color.shadow)
+                .shadowColorRes(R.color.shadowShow)
                 .titleTextSizeRes(R.dimen.text_title)
                 .textSizeRes(R.dimen.text_normal)
                 .spacingRes(R.dimen.spacing_normal)
-                .backgroundContentColorRes(R.color.blue)
+                .backgroundContentColorRes(R.color.show_case_background)
                 .circleIndicatorBackgroundDrawableRes(R.drawable.selector_circle_green)
-                .prevStringRes(R.string.previous)
-                .nextStringRes(R.string.next)
-                .finishStringRes(R.string.finish)
+                .prevStringRes(R.string.previousShow)
+                .nextStringRes(R.string.nextShow)
+                .finishStringRes(R.string.finishShow)
                 .useCircleIndicator(true)
                 .clickable(true)
                 .build();

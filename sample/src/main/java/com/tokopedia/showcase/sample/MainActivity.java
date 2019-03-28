@@ -13,11 +13,12 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-import com.tokopedia.showcase.ShowCaseContentPosition;
-import com.tokopedia.showcase.ShowCaseDialog;
-import com.tokopedia.showcase.ShowCaseBuilder;
-import com.tokopedia.showcase.ShowCaseObject;
-import com.tokopedia.showcase.ViewHelper;
+
+import com.goda.showcase.ShowCaseBuilder;
+import com.goda.showcase.ShowCaseContentPosition;
+import com.goda.showcase.ShowCaseDialog;
+import com.goda.showcase.ShowCaseObject;
+import com.goda.showcase.ViewHelper;
 
 import java.util.ArrayList;
 
@@ -47,20 +48,29 @@ public class MainActivity extends AppCompatActivity
         showCaseDialog = new ShowCaseBuilder()
                 .titleTextColorRes(android.R.color.white)
                 .textColorRes(android.R.color.white)
-                .shadowColorRes(R.color.shadow)
+                .shadowColorRes(R.color.shadowShow)
                 .titleTextSizeRes(R.dimen.text_title)
                 .textSizeRes(R.dimen.text_normal)
                 .spacingRes(R.dimen.spacing_normal)
-                .backgroundContentColorRes(R.color.blue)
+                .backgroundContentColorRes(R.color.show_case_background)
                 .circleIndicatorBackgroundDrawableRes(R.drawable.selector_circle_green)
-                .prevStringRes(R.string.previous)
-                .nextStringRes(R.string.next)
-                .finishStringRes(R.string.finish)
+                .prevStringRes(R.string.previousShow)
+                .nextStringRes(R.string.nextShow)
+                .finishStringRes(R.string.finishShow)
                 .useCircleIndicator(true)
                 .clickable(true)
                 .useArrow(true)
+
                 .useSkipWord(true)
                 .build();
+        showCaseDialog.setShowCaseStepListener(new ShowCaseDialog.OnShowCaseStepListener() {
+            @Override
+            public boolean onShowCaseGoTo(int previousStep, int nextStep, ShowCaseObject showCaseObject) {
+
+                return false;
+
+            }
+        });
     }
 
     private void initViews() {
@@ -71,7 +81,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ScrollShowCaseActivity.class);
+                Intent intent = new Intent(MainActivity.this, ScrollShowCaseActivity.class);
                 startActivity(intent);
             }
         });
@@ -81,7 +91,7 @@ public class MainActivity extends AppCompatActivity
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         llm = new LinearLayoutManager(MainActivity.this,
-                LinearLayoutManager.VERTICAL,false);
+                LinearLayoutManager.VERTICAL, false);
 
         recyclerView.setLayoutManager(llm);
 
@@ -97,13 +107,13 @@ public class MainActivity extends AppCompatActivity
             return;
         }*/
 
-        final ArrayList <ShowCaseObject> showCaseList = new ArrayList<>();
-
-
+        final ArrayList<ShowCaseObject> showCaseList = new ArrayList<>();
         showCaseList.add(new ShowCaseObject(
                 toolbar,
                 null,
-                "Above is the <b>toolbar</b>.<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suo enim quisque studio maxime ducitur. Scio enim esse quosdam, qui quavis lingua philosophari possint; Animum autem reliquis rebus ita perfecit, ut corpus; Quo modo autem optimum, si bonum praeterea nullum est? Dicet pro me ipsa virtus nec dubitabit isti vestro beato M. Sic enim censent, oportunitatis esse beate vivere."));
+                "Above is the <b>toolbar</b>.<br/><br/>Lorem ipsum dolor sit amet, " +
+                        "consectetur adipiscing elit. Suo enim quisque studio maxime ducitur." +
+                        " Scio enim esse quosdam, qui quavis lingua philosophari possint; Animum autem reliquis rebus ita perfecit, ut corpus; Quo modo autem optimum, si bonum praeterea nullum est? Dicet pro me ipsa virtus nec dubitabit isti vestro beato M. Sic enim censent, oportunitatis esse beate vivere."));
 
         // using title
         // use position to left
@@ -122,7 +132,7 @@ public class MainActivity extends AppCompatActivity
         int completelyVisiblePosition = llm.findFirstCompletelyVisibleItemPosition();
         View itemView = llm.findViewByPosition(completelyVisiblePosition);
 
-        if (itemView!= null) {
+        if (itemView != null) {
             // use background white
             showCaseList.add(new ShowCaseObject(
                     itemView,
@@ -155,11 +165,11 @@ public class MainActivity extends AppCompatActivity
         buttonShowCase.getLocationInWindow(location);
 
         int xStart = location[0];
-        int yStart = location[1]- ViewHelper.getStatusBarHeight(this);
-        int xEnd = location[0]+ buttonShowCase.getWidth();
-        int yEnd = location[1]+buttonShowCase.getHeight()- ViewHelper.getStatusBarHeight(this);
-        int xCenter = ( xStart + xEnd ) /2;
-        int yCenter = ( yStart + yEnd ) /2;
+        int yStart = location[1] - ViewHelper.getStatusBarHeight(this);
+        int xEnd = location[0] + buttonShowCase.getWidth();
+        int yEnd = location[1] + buttonShowCase.getHeight() - ViewHelper.getStatusBarHeight(this);
+        int xCenter = (xStart + xEnd) / 2;
+        int yCenter = (yStart + yEnd) / 2;
         int radius = buttonShowCase.getWidth() * 2 / 3;
 
         showCaseList.add(
@@ -169,8 +179,8 @@ public class MainActivity extends AppCompatActivity
                         "This is highlighted using custom target",
                         ShowCaseContentPosition.UNDEFINED,
                         Color.WHITE)
-                        .withCustomTarget(new int[]{ xCenter, yCenter}
-                                , radius) );
+                        .withCustomTarget(new int[]{xCenter, yCenter}
+                                , radius));
 
         showCaseList.add(
                 new ShowCaseObject(
@@ -179,10 +189,10 @@ public class MainActivity extends AppCompatActivity
                         "This is highlighted using custom target",
                         ShowCaseContentPosition.UNDEFINED,
                         Color.WHITE)
-                        .withCustomTarget(new int[]{ xStart - 20, yStart - 20, xEnd + 20, yEnd + 20}) );
+                        .withCustomTarget(new int[]{xStart - 20, yStart - 20, xEnd + 20, yEnd + 20}));
 
         // make the dialog show
-        showCaseDialog.show(MainActivity.this   ,SHOWCASE_TAG,  showCaseList);
+        showCaseDialog.show(MainActivity.this, SHOWCASE_TAG, showCaseList);
 
     }
 

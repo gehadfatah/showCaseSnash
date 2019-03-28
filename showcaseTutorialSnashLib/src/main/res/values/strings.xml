@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">tutors</string>
+
+    <string name="previousShow"><!--&lt;-->Prev</string>
+    <string name="nextShow"><!--&gt;-->Next</string>
+    <string name="finishShow"> </string>
+    <string name="skipShow">Skip</string>
+</resources>

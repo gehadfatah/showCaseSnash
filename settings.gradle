@@ -1,1 +1,1 @@
-include ':sample', ':showcase'
+include ':sample', ':showcase', ':showcaseTutorialSnashLib'
